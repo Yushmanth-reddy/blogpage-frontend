@@ -33,7 +33,7 @@ signUpForm.addEventListener("submit",(event)=>{
             if(token){
                 console.log(token);
                 localStorage.setItem("jwt",token);
-                location.href="/homepage/homepage.html";
+                location.href="/allblogsPage/allblogs.html";
             }
             else{
                 alert("Sign up error")

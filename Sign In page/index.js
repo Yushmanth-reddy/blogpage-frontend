@@ -26,7 +26,7 @@ signInForm.addEventListener("submit",(event)=>{
         console.log(jsonData);
         if(token){
             localStorage.setItem("jwt",token);
-            location.href="/homepage/homepage.html";
+            location.href="/allblogsPage/allblogs.html";
         }
         else{
             alert("signIn error");

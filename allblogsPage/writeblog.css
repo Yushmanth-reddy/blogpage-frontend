@@ -8,11 +8,10 @@
 body{
     height: 100vh;
     background-color: #1F1F1F;
-    background-image: url("./bg1.png"),
-    url("./bg2.png");
+    background-image: url("./bg1.png");
     background-repeat: no-repeat;
-    background-position: top left,bottom right;
-    background-size: 300px,300px;
+    background-position: top left;
+    background-size: 200px;
 }
 
 .navbar{
@@ -55,11 +54,6 @@ body{
     color: #c8308b;
 }
 
-#write{
-    color: #c8308b;
-    
-}
-
 .navbar  input{
     border: none;
     outline: none;
@@ -74,70 +68,43 @@ body{
     border-color: #c8308b;
     transition: .3s;
 }
-.Compose-container{
-    padding: 0 90px;
-    height: 85vh;
+.blogs-container{
+    min-height: 90%;
 }
-.glass{
-    background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.0));
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-    padding: 60px 70px;
-    
-}
-.title-input{
-    font-size: 30px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    display: block;
-    margin-bottom: 30px;
-    color: aliceblue;
-    width: 100%;
-}
-.title-input::placeholder{
-    color: aliceblue;
-    font-weight: bold;
-}
-.Compose-container textarea{
-    background-color: transparent;
-    width: 100%;
-    height: 70%;
-    border: none;
-    outline: none;
-    color: aliceblue;
-    font-size: 20px;
-    resize: none;
-}
-.button-container{
-    width: 100%;
+
+.eachBlog-container{
+    /* background-color: #c8308b; */
     display: flex;
-    justify-content: space-between;
-    padding: 30px 0;
+    flex-direction: row;
+    height: 300px;
+    padding: 35px 45px;
 }
-.button-container button{
-    padding: 15px 30px;
-    color: aliceblue;
-    border-radius: 10px;
-    border: none;
-    font-size: 19px;
+
+.photo-card{
+    height: 100%;
+    width: 240px;
+    border-radius: 20px;
+    background-color: antiquewhite;
+    margin-right: 30px;
 }
-.btn1{
-    background-color: forestgreen;
+.blog-card{
+    height: 100%;
+    width: 81%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: aliceblue;
     cursor: pointer;
+    text-decoration: none;
 }
-.btn2{
-    background-color: maroon;
-    cursor: pointer;
+.top-container{
+    padding: 0 0 5px 0;
+    text-decoration: none;
 }
-::-webkit-scrollbar {
-  width: 13px;
-  height: 13px;
-  cursor: alias;
+
+.bottom-container{
+    padding: 15px 0;
 }
+
 ::-webkit-scrollbar-button {
   width: 17px;
   height: 17px;
