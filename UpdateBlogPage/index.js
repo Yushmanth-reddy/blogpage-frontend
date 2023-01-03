@@ -66,7 +66,7 @@ updateButton.addEventListener("click",()=>{
         .then((jsonData)=>{
             // console.log(jsonData);
             alert("Blog updated");
-            location.href = "/allblogsPage/allblogs.html"
+            location.href = "/myblogsPage/allblogs.html"
         })
 
     }
@@ -91,7 +91,7 @@ deleteButton.addEventListener("click",()=>{
         })
         .then((jsonData)=>{
             alert("Blog Deleted");
-            location.href = "/allblogsPage/allblogs.html"
+            location.href = "/myblogsPage/allblogs.html"
         })
 
     }
@@ -111,6 +111,6 @@ homePage.addEventListener("click",()=>{
 })
 getallBlogs.addEventListener("click",()=>{
     if(token){
-        location.href="/allblogsPage/allblogs.html";
+        location.href="/myblogsPage/allblogs.html";
     }
 })

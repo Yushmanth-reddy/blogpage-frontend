@@ -33,14 +33,14 @@ submitButton.addEventListener("click",()=>{
         .then((jsonData)=>{
             // console.log(jsonData);
             alert("Blog Posted");
-            location.href = "/allblogsPage/allblogs.html"
+            location.href = "/myblogsPage/allblogs.html"
         })
     }
 })
 
 getallBlogs.addEventListener("click",()=>{
     if(token){
-        location.href="/allblogsPage/allblogs.html";
+        location.href="/myblogsPage/allblogs.html";
     }
 })
 homePage.addEventListener("click",()=>{

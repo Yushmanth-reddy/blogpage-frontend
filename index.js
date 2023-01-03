@@ -1,5 +1,5 @@
 const token = localStorage.getItem("jwt");
 
 if(token){
-    location.href="/allblogsPage/allblogs.html"
+    location.href="/myblogsPage/allblogs.html"
 }

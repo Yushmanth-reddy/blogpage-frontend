@@ -1,4 +1,5 @@
 const signInForm = document.querySelector(".signinForm");
+const body = document.querySelector("body");
 
 const url = "http://localhost:8000"
 
@@ -17,6 +18,7 @@ signInForm.addEventListener("submit",(event)=>{
             password
           })
     }
+    body.innerHTML=`<img src="../loadingAnimation.gif" style="height: 100px;  width: 100px; text-align: center; top: 50%;">`;
     fetch(`${url}/auth/signin`,options)
     .then((data)=>{
         return(data.json())
@@ -26,10 +28,11 @@ signInForm.addEventListener("submit",(event)=>{
         console.log(jsonData);
         if(token){
             localStorage.setItem("jwt",token);
-            location.href="/allblogsPage/allblogs.html";
+            location.href="/myblogsPage/allblogs.html";
         }
         else{
             alert("signIn error");
+            location.href="/Sign In page/main.html";
         }
     })
     .catch((err)=>{
