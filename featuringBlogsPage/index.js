@@ -5,9 +5,10 @@ const token = localStorage.getItem("jwt");
 
 // const getallBlogs = document.getElementById("allBlogs");
 const homePage = document.getElementById("homepage");
+const allmyblogs = document.getElementById("allBlogs");
 const blogPage = document.getElementById("write");
-const featuringblogPage = document.getElementById("featuringblog");
 const logoutBtn = document.getElementById("logout");
+const input = document.querySelector("input");
 
 
 let blogsData = [];
@@ -28,7 +29,7 @@ function appendBlog(arrayOfBlogs){
         eachBlogContainer.id = eachBlog.blogid
         eachBlogContainer.innerHTML = `<div class="photo-card">
         </div><div class="blog-card"><div class="top-container"><h1>${eachBlog.title}</h1>
-        </div><hr><div class="bottom-container"><p>${eachBlog.content}</p><a href="../UpdateBlogPage/updateblog.html?blogid=${eachBlog.blogid}">Edit blog</a><a href="../readTheBlog/readblog.html?blogid=${eachBlog.blogid}"><div class = "Read-More">
+        </div><hr><div class="bottom-container"><p>${eachBlog.content}</p><a href="../readTheBlog/readblog.html?blogid=${eachBlog.blogid}"><div class = "Read-More">
         <p class="read-more">Read More</p></div></a></div><button ><i class="fa-solid fa-heart fa-2x" "><p class="likes-count">${eachBlog.likes}</p></i></button></div>`
         allBlogsContainer.appendChild(eachBlogContainer);
         
@@ -112,28 +113,68 @@ window.addEventListener("load",()=>{
                 authorization : token
             }
         }
-        fetch(`${url}/blogs/allblogs`,options)
-        .then((data)=>{
-            return(data.json());
-        })
-        .then((jsonData)=>{
-            console.log(jsonData);
-            const array = jsonData.data;
-            blogsData = array;
-            appendBlog(blogsData);
-        })
-        .catch((err)=>{
-            if(err){
-                console.log(err);
-            }
-        })
+        if(input.value===""){
+            fetch(`${url}/blogs/featureingBlogs`,options)
+            .then((data)=>{
+                return(data.json());
+            })
+            .then((jsonData)=>{
+                console.log(jsonData);
+                const array = jsonData.data;
+                blogsData = array;
+                appendBlog(blogsData);
+            })
+            .catch((err)=>{
+                if(err){
+                    console.log(err);
+                }
+            })
+        }
+        else{
+            fetch(`${url}/blogs/featureingBlogs`,options)
+            .then((data)=>{
+                return(data.json());
+            })
+            .then((jsonData)=>{
+                console.log(jsonData);
+                const array = jsonData.data;
+                blogsData = array;
+                appendBlog(blogsData);
+                var searchStr = input.value.toLowerCase();
+                arrayAfterSearch(searchStr);
+            })
+            .catch((err)=>{
+                if(err){
+                    console.log(err);
+                }
+            })
+        }
     }
 })
 
+input.addEventListener("input", (event) => {
+    const searchStr = event.target.value.toLowerCase();
+    arrayAfterSearch(searchStr);
+});
 
-featuringblogPage.addEventListener("click",()=>{
+function arrayAfterSearch(searchStr){
+    const filteredArray = blogsData.filter((ele) => {
+      return (
+        ele.title.toLowerCase().includes(searchStr) ||
+        ele.content.toLowerCase().includes(searchStr)
+      );
+    });
+    appendBlog(filteredArray);
+    
+  }
+
+
+
+
+
+  allmyblogs.addEventListener("click",()=>{
     if(token){
-        location.href="/featuringBlogsPage/featuringBlogs.html";
+        location.href="/myblogsPage/allblogs.html";
     }
 })
 
@@ -148,24 +189,3 @@ homePage.addEventListener("click",()=>{
     }
 })
 
-var profileIcon = document.querySelector(".dropdown");
-
-profileIcon.addEventListener("click",()=>{
-
-    document.getElementById("myDropdown").classList.toggle("show");
-})
-
-  
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
