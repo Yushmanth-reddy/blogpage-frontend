@@ -78,6 +78,29 @@ body{
     padding: 0 90px;
     height: 85vh;
 }
+.comments-header{
+  padding-bottom: 20px;
+  
+}
+input[type=text] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 1.7%;
+  margin-left:230px;
+  box-sizing: border-box;
+  background-color:#1F1F1F ;
+  color: white;
+  border:1px;
+}
+.add-comment{
+ margin-top: 60px;
+  
+}
+.comments-container{
+  padding:30px 90px;
+  height:18vh;
+  color: aliceblue;
+}
 .glass{
     background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.0));
     width: 100%;
@@ -86,7 +109,17 @@ body{
     -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
     padding: 40px 50px;
-    
+    position: relative;
+}
+input[type=submit]{
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:6px;
 }
 .title{
     font-size: 30px;
@@ -98,7 +131,24 @@ body{
     color: aliceblue;
     width: 100%;
 }
+.username{
+ transform: translateY(15px);
+  font-size: 20px;
+  margin-left: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: block;
+  color: aliceblue;
+  width: 100%;
+}
 
+.holder{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+}
 .content{
     background-color: transparent;
     width: 100%;
@@ -110,7 +160,83 @@ body{
     resize: none;
     letter-spacing: 0.5px;
 }
+.comment{
+position: absolute;
+padding-top: 10px;
+padding-left: 48px;
+  background-color: transparent;
+  width: 80rem ;
+  height: 85%;
+  border: none;
+  outline: none;
+  color: aliceblue;
+  font-size: 12px;
+  resize: none;
+  letter-spacing: 0.5px;
+}
 
+.place{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
+.profile{
+  float: left;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: blue;
+  clip-path: circle();
+  position: absolute;
+  margin-left: 80px;
+  margin-top:10px;
+  display: flex;
+}
+.user-image{
+  margin-top: -30px;
+  margin-left: -35px;
+  float: left;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: blue;
+  clip-path: circle();
+  position: absolute;
+  top: 50%;
+}
+
+.username{
+  padding-left: 10px;
+  margin-top: -40px;
+}
+
+.like-button{
+  margin-top: 40px;
+  margin-left:35px;
+  float: left;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: blue;
+  clip-path: circle();
+}
+.like, .dislike{
+  padding-top: 10px;
+}
+
+.dislike-button{
+  margin-top: 40px;
+  margin-left: 100px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: blue;
+  clip-path: circle();
+}
 ::-webkit-scrollbar {
   width: 13px;
   height: 13px;
